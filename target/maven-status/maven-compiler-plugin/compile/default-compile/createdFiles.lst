@@ -1,0 +1,10 @@
+net/learning/app/entity/login/StudentRepo.class
+net/learning/app/repository/StudentRepository.class
+net/learning/app/entity/login/RepoIMPL.class
+net/learning/app/StudentManagementSystemApplication.class
+net/learning/app/service/StudentService.class
+net/learning/app/entity/login/StuLogin.class
+net/learning/app/controller/StudentController.class
+net/learning/app/service/StudentServiceImpl.class
+net/learning/app/entity/Student.class
+net/learning/app/controller/HealthController.class

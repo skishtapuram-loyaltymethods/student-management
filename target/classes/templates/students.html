@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--    <meta charset="ISO-8859-1">-->
+    <title> Student </title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    </style>
+</head>
+<body>
+<!--<gowtham>gg</gowtham>-->
+<!--<table>-->
+<!--	<tr>-->
+<!--		<td>eliyaz</td>-->
+<!--		<td>gowtham</td>-->
+<!--	</tr>-->
+<!--	<tr>-->
+<!--		<td>node</td>-->
+<!--	</tr>-->
+<!--	<tr>-->
+<!--		<td>dfsdfs</td>-->
+<!--	</tr>-->
+<!--</table>-->
+<!--<a href="https://www.google.com">eliyaz goes to google</a>-->
+<!--<ul>-->
+<!--	<li>sdfsf</li>-->
+<!--	<li>sdads</li>-->
+<!--	<li>sdads</li>-->
+<!--	<li>sdads</li>-->
+<!--</ul>-->
+<nav style="background:rgb(84, 80, 75)" class="navbar navbar-expand-md bg-coral navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="http://localhost:8080">Student Administration Portal</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--    &lt;!&ndash; Navbar links &ndash;&gt;-->
+    <!--    <div style="background:rgb(84, 80, 75)" class="collapse navbar-collapse" id="collapsibleNavbar">-->
+    <!--        <ul class="navbar-nav">-->
+    <!--            <li class="nav-item">-->
+    <!--                <a class="nav-link" th:href="@{/students}">Student Management</a>-->
+    <!--            </li>-->
+    <!--            <li class="nav-item">-->
+    <!--                <a class="nav-link" th:href="@{/students}">Teacher Management</a>-->
+    <!--            </li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h2> List Of Students </h2>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <a style="background: rgb(247, 121, 54); padding: 8px; border-radius: 5px; color: white;"
+               th:href="@{/students/new}"
+            > Add Student</a>
+
+        </div>
+
+    </div>
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead style="background: rgb(84, 80, 75)" class="table-dark">
+        <tr>
+            <th> Student First Name</th>
+            <th> Student Last Name</th>
+            <th> Student Email</th>
+            <th> Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr style="background: rgb(247, 121, 54)" th:each="student: ${students}">
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.email}"></td>
+            <td>
+                <a style="background: rgb(84, 80, 75); padding: 8px; border-radius: 5px; color: white;"
+                   th:href="@{/students/edit/{id}(id=${student.id})}"
+                >Update</a>
+
+                <a style="background: rgb(84, 80, 75); padding: 8px; border-radius: 5px; color: white;"
+                   th:href="@{/students/{id}(id=${student.id})}"
+                >Delete</a>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>

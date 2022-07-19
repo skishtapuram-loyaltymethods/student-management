@@ -1,0 +1,60 @@
+version: '3.0'
+services:
+  student:
+    build: ./
+    image: student
+    ports:
+     - '8090:8080'
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: Gautham
+      POSTGRES_PASSWORD: Root@123
+    ports:
+      - "5432:5432"
+    restart: always
+
+
+
+
+
+
+#    volumes:
+#      - /home/skisthapuram/IdeaProjects/Student-Administration:/bin
+
+
+
+
+
+    #     check_service_ports:5432
+    #    port_forwarding:5432:5432
+
+    #  deploy:
+    #    resources:
+    #      limits:
+    #        cpus: '1'
+    #        memory: 4G
+
+#services:
+#  app:
+#    container_name: springboot-postgresql
+#    image: springboot-postgresql
+#    build: ./
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgresqldb
+#  postgresqldb:
+#    image: postgres
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      - POSTGRES_PASSWORD=postgres
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_DB=employeedb
+#    volumes:
+#     - /home/skisthapuram/IdeaProjects/Student-Administration:/home/workspace/Student-administration

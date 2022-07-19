@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Management</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav style="background: rgb(84, 80, 75)" class="navbar navbar-expand-md  navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand text-white ">Student Administration Portal</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!--    &lt;!&ndash; Navbar links &ndash;&gt;-->
+    <!--    <div class="collapse navbar-collapse" id="collapsibleNavbar">-->
+    <!--        <ul class="navbar-nav">-->
+    <!--            <li class="nav-item">-->
+    <!--                <a class="nav-link" th:href="@{/students}">Welcom </a>-->
+    <!--            </li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
+
+
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <h3> Please Login Using Your Credentials </h3>
+    </div>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <hr>
+                <h4 class="text-center "> Login To Your Account </h4>
+
+                <hr>
+                <div class="card-body">
+                <form th:action="@{/login}" th:object="${login}" method="POST">
+                <div class="form-group">
+                    <label> Student Email </label>
+                    <input
+                            type="email"
+                            name="username"
+                            th:field="*{username}"
+                            class="form-control"
+                            placeholder="Enter Your Email"
+                    />
+                </div>
+                <div class="form-group">
+                    <label> Student Password </label>
+                    <input
+                            type="password"
+                            name="password"
+                            th:field="*{password}"
+                            class="form-control"
+                            placeholder="Enter Your Password"
+                    />
+                </div>
+
+                <div class="box-footer">
+                    <button style="background: rgb(247, 121, 54); padding: 8px; border-radius: 5px; color: white;"
+                            type="submit" class="btn btn-grey">
+                        Submit
+                    </button>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
