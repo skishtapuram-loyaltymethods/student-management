@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Management</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav style="background: rgb(84, 80, 75)" class="navbar navbar-expand-md  navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand text-white ">Student Administration Portal</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}">Back To Home Page</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <hr>
+            <h2 class="text-center "> Update Student </h2>
+
+            <hr>
+            <div class="card-body">
+                <form th:action="@{/students/{id} (id=${student.id})}" th:object="${student}" method="POST">
+                    <div class="form-group">
+                        <label> Student First Name </label>
+                        <input
+                                type="text"
+                                name="firstName"
+                                th:field="*{firstName}"
+                                class="form-control"
+                                placeholder="Enter Student First Name"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Student Last Name </label>
+                        <input
+                                type="text"
+                                name="lastName"
+                                th:field="*{lastName}"
+                                class="form-control"
+                                placeholder="Enter Student Last Name"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Student Email </label>
+                        <input
+                                type="email"
+                                name="email"
+                                th:field="*{email}"
+                                class="form-control"
+                                placeholder="Enter Student Email"
+                        />
+                    </div>
+
+                    <div class="box-footer">
+                        <button style="background: rgb(247, 121, 54); padding: 8px; border-radius: 5px; color: white;"
+                                type="submit" class="btn btn-grey">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
